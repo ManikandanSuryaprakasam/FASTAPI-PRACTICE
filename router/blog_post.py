@@ -42,7 +42,7 @@ def create_comment(blog: BlogPost, id: int,
                 content:str = Body(...,
                                    min_length=10,
                                    max_length=50,
-                                   regex="^[a-z\s]*$"
+                                   pattern="^[a-z]*$"
                                    ),
                 v: Optional[list[str]] = Query(['1.0', '1.1', '2.0']) ,
                 comment_id: int = Path(..., gt=5, le=10),current_user: UserBase = Depends(get_current_user)
